@@ -5,9 +5,11 @@ import com.digital.moncabinet.enums.GenderEnum;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Id;
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 @Data
@@ -22,7 +24,4 @@ public class Patient {
     private int tel;
     @CreatedDate
     private LocalDate dateCreated;
-
-    @OneToMany(mappedBy = "patient")
-    private List<Seance> listSeance;
 }
