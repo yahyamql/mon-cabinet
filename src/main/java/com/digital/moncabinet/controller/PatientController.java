@@ -18,7 +18,6 @@ import java.util.stream.Collectors;
 @CrossOrigin("*")
 public class PatientController {
 
-
     private PatientRepository patientRepository;
 
     @PostMapping
@@ -51,7 +50,7 @@ public class PatientController {
     }
 
     @DeleteMapping("/{id}")
-    public void updatePatient(@PathVariable long id) {
+    public void deletePatient(@PathVariable long id) {
         patientRepository.deleteById(id);
     }
 }

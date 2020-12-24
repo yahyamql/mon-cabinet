@@ -2,8 +2,6 @@ package com.digital.moncabinet.dto;
 
 import lombok.*;
 
-import java.io.Serializable;
-
 @Data
 public class PatientDto  {
     private long id;
@@ -12,5 +10,6 @@ public class PatientDto  {
     private String address;
     private String gender;
     private String dateCreation;
-    private int tel;
+    private String dateBirth;
+    private long tel;
 }
