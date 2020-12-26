@@ -7,6 +7,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Data
@@ -24,4 +25,6 @@ public class Patient {
     private short age;
     private LocalDateTime dateCreation;
     private LocalDate dateBirth;
+    @OneToMany(mappedBy = "patient")
+    private List<Seance> listSeance;
 }

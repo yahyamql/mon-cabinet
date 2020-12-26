@@ -3,17 +3,17 @@ package com.digital.moncabinet.model;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
 public class Seance {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private LocalDate dateSeance;
+    private LocalDateTime dateSeance;
     private double amount;
     private String receipt;
     private String duration;
