@@ -53,4 +53,5 @@ public class PatientController {
     public void deletePatient(@PathVariable long id) {
         patientRepository.deleteById(id);
     }
+
 }

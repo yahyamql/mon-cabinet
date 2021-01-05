@@ -11,6 +11,8 @@ public class PatientDto  {
     private String gender;
     private String dateCreation;
     private String dateBirth;
+    private String familySituation;
     private int age;
-    private long tel;
+    private int numberChildren;
+    private String tel;
 }
