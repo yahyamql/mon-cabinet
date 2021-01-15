@@ -1,8 +1,12 @@
 package com.digital.moncabinet.controller;
 
 import com.digital.moncabinet.dto.PatientDto;
+import com.digital.moncabinet.dto.SeanceDto;
 import com.digital.moncabinet.mapper.PatientMapper;
+import com.digital.moncabinet.mapper.SeanceMapper;
+import com.digital.moncabinet.model.Seance;
 import com.digital.moncabinet.repo.PatientRepository;
+import com.digital.moncabinet.repo.SeanceRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +19,7 @@ import java.util.stream.Collectors;
 @CrossOrigin("*")
 public class SeanceController {
 
+    private SeanceRepository seanceRepository;
     private PatientRepository patientRepository;
 
     @GetMapping("/get-patient")
@@ -25,5 +30,11 @@ public class SeanceController {
 
         System.out.println("size : " + listPatientDto.size());
         return listPatientDto;
+    }
+
+    @PostMapping
+    public void addPatient(@RequestBody SeanceDto seanceDto) {
+        Seance seance = SeanceMapper.INSTANCE.toEntity(seanceDto);
+        seanceRepository.save(seance);
     }
 }

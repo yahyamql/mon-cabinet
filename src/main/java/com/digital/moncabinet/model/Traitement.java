@@ -11,7 +11,7 @@ public class Traitement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String type;
+    private String type = "Consultation";
     private String description;
     private double amount;
     @OneToMany(mappedBy = "traitement")
