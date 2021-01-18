@@ -27,7 +27,6 @@ public class SeanceController {
         System.out.println("keyword : " + keyword);
         List<PatientDto> listPatientDto = patientRepository.findByFirstNameOrLastName(keyword).stream()
                 .map(PatientMapper.INSTANCE::toDto).collect(Collectors.toList());
-
         System.out.println("size : " + listPatientDto.size());
         return listPatientDto;
     }

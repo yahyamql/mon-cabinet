@@ -23,7 +23,7 @@ public class Patient {
     @Enumerated(EnumType.STRING)
     private GenderEnum gender;
     @Enumerated(EnumType.STRING)
-    private FamilySituationEnum familySituationEnum;
+    private FamilySituationEnum familySituation;
     private String tel;
     private short age;
     private LocalDateTime dateCreation;

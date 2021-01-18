@@ -8,9 +8,9 @@ import org.mapstruct.factory.Mappers;
 @Mapper
 public interface SeanceMapper {
 
-    public  static SeanceMapper INSTANCE = Mappers.getMapper( SeanceMapper.class );
+    SeanceMapper INSTANCE = Mappers.getMapper( SeanceMapper.class );
 
-    public Seance toEntity(SeanceDto seanceDto);
+    Seance toEntity(SeanceDto seanceDto);
 
-    public SeanceDto toDto(Seance seance);
+    SeanceDto toDto(Seance seance);
 }

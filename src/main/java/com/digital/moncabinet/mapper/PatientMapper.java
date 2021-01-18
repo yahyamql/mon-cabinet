@@ -7,6 +7,7 @@ import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 @Mapper
@@ -20,13 +21,15 @@ public abstract class PatientMapper {
 
     @AfterMapping
     public void toEntityAfterMapping(PatientDto patientDto,@MappingTarget Patient patient) {
-        patient.setFamilySituationEnum(FamilySituationEnum.valueOf(patientDto.getFamilySituation()));
+        //patient .setFamilySituation(FamilySituationEnum.valueOf(patientDto.getFamilySituation()));
     }
 
     @AfterMapping
-    public void completeAttributes(@MappingTarget PatientDto patientDto, Patient patient) {
+    public void toDtoAfterMapping(@MappingTarget PatientDto patientDto, Patient patient) {
         Optional.ofNullable(patient.getDateBirth()).ifPresent(e-> {
             patientDto.setAge(LocalDate.now().getYear() - e.getYear());
+           DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            patientDto.setDateBirth(e.format(formatter));
         });
     }
 }
