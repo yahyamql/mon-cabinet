@@ -33,20 +33,18 @@ public class PatientController {
         return listPatientDto;
     }
 
-    @PutMapping("/{id}")
-    public void updatePatient(@PathVariable long id,
-            @RequestBody PatientDto patientDto) {
-        patientDto.setId(id);
+    @PutMapping
+    public void updatePatient(@RequestBody PatientDto patientDto) {
         Patient patient = PatientMapper.INSTANCE.toEntity(patientDto);
         patientRepository.save(patient);
     }
 
     @GetMapping("/{id}")
-    public void getPatient(@PathVariable long id) {
+    public PatientDto getPatient(@PathVariable long id) {
         Optional<Patient> patient = patientRepository.findById(id);
-        Patient patientExist =
-        Optional.ofNullable(patient.get()).orElseThrow(IllegalArgumentException::new);
-        patientRepository.save(patientExist);
+        Patient patientExist = Optional.ofNullable(patient.get()).orElseThrow(IllegalArgumentException::new);
+        return PatientMapper.INSTANCE.toDto(patientExist);
+
     }
 
     @DeleteMapping("/{id}")

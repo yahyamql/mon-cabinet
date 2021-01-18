@@ -15,4 +15,5 @@ public class PatientDto  {
     private int age;
     private int numberChildren;
     private String tel;
+    private String insurance;
 }
