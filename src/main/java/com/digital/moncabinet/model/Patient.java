@@ -31,8 +31,4 @@ public class Patient {
     @OneToMany(mappedBy = "patient")
     private List<Seance> listSeance;
     private int numberChildren;
-
-    public Patient() {
-        this.dateCreation = LocalDateTime.now();
-    }
 }

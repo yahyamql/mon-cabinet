@@ -6,7 +6,7 @@ import lombok.Data;
 public class SeanceDto {
     private long id;
     private String comment;
-    private PatientDto patient;
+    private long idPatient;
     private String dateCreation;
     private String dateSeance;
     private boolean confirm;

@@ -30,6 +30,7 @@ public abstract class PatientMapper {
             patientDto.setAge(LocalDate.now().getYear() - e.getYear());
            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
             patientDto.setDateBirth(e.format(formatter));
+
         });
     }
 }

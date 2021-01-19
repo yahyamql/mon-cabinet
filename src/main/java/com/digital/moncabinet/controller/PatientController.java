@@ -8,6 +8,7 @@ import com.digital.moncabinet.repo.PatientRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -23,6 +24,7 @@ public class PatientController {
     @PostMapping
     public void addPatient(@RequestBody PatientDto patientDto) {
         Patient patient = PatientMapper.INSTANCE.toEntity(patientDto);
+        patient.setDateCreation(LocalDateTime.now());
         patientRepository.save(patient);
     }
 
