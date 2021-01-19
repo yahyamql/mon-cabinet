@@ -28,7 +28,7 @@ public abstract class PatientMapper {
     public void toDtoAfterMapping(@MappingTarget PatientDto patientDto, Patient patient) {
         Optional.ofNullable(patient.getDateBirth()).ifPresent(e-> {
             patientDto.setAge(LocalDate.now().getYear() - e.getYear());
-           DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+           DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
             patientDto.setDateBirth(e.format(formatter));
         });
     }
