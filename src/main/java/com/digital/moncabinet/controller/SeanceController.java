@@ -38,4 +38,12 @@ public class SeanceController {
         seance.setPatient(p.get());
         seanceRepository.save(seance);
     }
+
+    @GetMapping("/{id}")
+     public List<SeanceDto> getSeance(@PathVariable long id) {
+        List<SeanceDto> listSeanceDto = seanceRepository.findByPatient_Id(id).stream().map(SeanceMapper.INSTANCE::toDto).collect(Collectors.toList());
+        System.out.println("listSeance"+listSeanceDto);
+        System.out.println("ID"+id);
+       return listSeanceDto;
+     }
 }
