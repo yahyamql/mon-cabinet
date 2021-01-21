@@ -14,9 +14,11 @@ public class Seance {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private ZonedDateTime dateSeance;
+    private ZonedDateTime start;
+    private ZonedDateTime end;
     private double amount;
     private String receipt;
+    private boolean confirm;
     private String duration;
     private String comment;
     @ManyToOne
