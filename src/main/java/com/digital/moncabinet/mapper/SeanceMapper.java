@@ -38,11 +38,15 @@ public abstract class SeanceMapper {
     }*/
 
     @Mappings({@Mapping(source = "extendedProps.confirm", target = "confirm"),
-            @Mapping(source = "extendedProps.comment", target = "comment")})
+            @Mapping(source = "extendedProps.comment", target = "comment"),
+            @Mapping(source = "extendedProps.idPatient", target = "patient.id")
+    })
     public abstract Seance toEntity(EventDto eventDto);
 
     @Mappings({@Mapping(source = "confirm", target = "extendedProps.confirm"),
-                    @Mapping(source = "comment", target = "extendedProps.comment")})
+            @Mapping(source = "comment", target = "extendedProps.comment"),
+            @Mapping(source = "patient.id", target = "extendedProps.idPatient")
+    })
     public abstract EventDto toDto(Seance seance);
 
     @AfterMapping
