@@ -53,7 +53,7 @@ public class SeanceController {
 
     @PostMapping
     public void addSeance(@RequestBody EventDto eventDto) {
-        eventDto.setEnd(eventDto.getStart().plusMinutes(30));
+        eventDto.setEnd(eventDto.getStart().plusMinutes(15));
         Seance seance = SeanceMapper.INSTANCE.toEntity(eventDto);
         patientRepository.findById(eventDto.getExtendedProps().getIdPatient()).
                 ifPresent(e-> {

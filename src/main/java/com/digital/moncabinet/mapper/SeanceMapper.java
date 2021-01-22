@@ -53,5 +53,6 @@ public abstract class SeanceMapper {
     public void toDtoAfterMapping(@MappingTarget EventDto eventDto, Seance seance) {
         eventDto.setTitle(
                 seance.getPatient().getFirstName() + " " + seance.getPatient().getLastName());
+        if(seance.isConfirm()) eventDto.setBackgroundColor("#468c47");
     }
 }

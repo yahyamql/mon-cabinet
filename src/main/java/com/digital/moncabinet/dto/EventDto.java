@@ -8,6 +8,7 @@ import java.time.ZonedDateTime;
 public class EventDto {
     private long id;
     private String title;
+    private String backgroundColor;
     private ZonedDateTime start;
     private ZonedDateTime end;
     private ExtendedPropsDto extendedProps;
